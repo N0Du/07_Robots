@@ -13,6 +13,7 @@
 #include <random>
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
 using namespace std;
 
 // Macro pour vider le buffer
@@ -51,4 +52,22 @@ int randomInt(int min, int max){
 
     // Retourne une valeur aléatoire
     return distribution(generateur);
+}
+
+vector<int> randomListInt(int nbElem){
+    vector<int> temp;
+    //construction du vecteur de base
+    for(int i = 0; i<nbElem; ++i){
+        temp.push_back(i);
+    }
+
+    vector<int> retour;
+
+    while(!temp.empty()){
+        int randomIndex = randomInt(0, (int)temp.size()-1);
+        retour.push_back(temp.at((size_t)randomIndex));
+        temp.erase(temp.begin()+randomIndex);
+    }
+
+    return retour;
 }

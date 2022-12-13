@@ -14,7 +14,9 @@
 #define LABO_07_ROBOTS_ANNEXE_H
 
 #include <string>
+#include <vector>
 
 int saisieInt(int min, int max, const std::string& msgEntree, const std::string& msgErreur);
 int randomInt(int min, int max);
+std::vector<int> randomListInt (int nbElem);
 #endif //LABO_07_ROBOTS_ANNEXE_H

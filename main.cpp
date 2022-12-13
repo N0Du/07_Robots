@@ -21,6 +21,7 @@ using namespace std;
 int main() {
     const string MSG_ERREUR = "Veuillez entrer un nombre valide.";
 
+    vector<int> listeIteration = randomListInt(9);
     //=======================
     // Saisie utilisateur
     //=======================
