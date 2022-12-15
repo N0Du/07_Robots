@@ -13,6 +13,12 @@
 #ifndef LABO_07_ROBOTS_ROBOT_H
 #define LABO_07_ROBOTS_ROBOT_H
 
+enum class DIRECTIONS{
+    HAUT,
+    BAS,
+    GAUCHE,
+    DROITE
+};
 
 class Robot {
 private:
@@ -31,10 +37,12 @@ public:
     void setPosX(int newX);
     void setPosY(int newY);
 
+    bool deplacement(DIRECTIONS dir, int nbPas);
+
     bool operator==(const Robot& robot) const;
 
     ~Robot();
 };
 
-
+DIRECTIONS directionAleatoire(int posX, int posY);
 #endif //LABO_07_ROBOTS_ROBOT_H

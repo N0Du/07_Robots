@@ -11,6 +11,8 @@
 // Compilateur Bundled MinGW - Version w64 9.0
 
 #include "robot.h"
+#include "annexe.h"
+
 
 Robot::Robot(){
     this->index = 0;
@@ -52,5 +54,16 @@ bool Robot::operator==(const Robot& robot) const{
 
 Robot::~Robot(){
 
+}
+
+bool Robot::deplacement(DIRECTIONS dir, int nbPas) {
+    //if()
+
+    return false;
+}
+
+
+DIRECTIONS directionAleatoire(int posX, int posY){
+    return (DIRECTIONS) randomInt(0, 3); // Auto pour warning
 }
 

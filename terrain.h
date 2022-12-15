@@ -14,6 +14,10 @@
 #define LABO_07_ROBOTS_TERRAIN_H
 
 #include <vector>
+#include <iostream>
+
+#include "robot.h"
+
 
 using Data = char;
 using Ligne = std::vector<Data>;
@@ -34,7 +38,12 @@ public:
 
     Matrice getTerrain() const;
 
+    bool positionDisponible(int posX, int posY) const;
+    void ajouterRobot(const Robot& robot);
+
+    friend std::ostream& operator<< (std::ostream& os, const Terrain& terrain);
 };
+
 
 
 #endif //LABO_07_ROBOTS_TERRAIN_H

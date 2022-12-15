@@ -20,7 +20,7 @@ using namespace std;
 #define VIDER_BUFFER cin.ignore(numeric_limits<streamsize>::max(), '\n')
 
 int saisieInt(int min, int max, const string& msgEntree, const string& msgErreur){
-    const int W = 30; //
+    const int W = 20; //
 
     // Déclaration de variables internes
     int saisie;
@@ -28,7 +28,7 @@ int saisieInt(int min, int max, const string& msgEntree, const string& msgErreur
 
     do {
         // Message et entrée utilisateur
-        cout << left << setw(W) << msgEntree << "[" << min << "..."<< max << "]: ";
+        cout << left << setw(W) << msgEntree << right << setw(15) << "[" << min << "-"<< max << "]: ";
         cin >> saisie;
 
         // Vérification de l'entrée
