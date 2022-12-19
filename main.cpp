@@ -69,8 +69,6 @@ int main() {
             }
         }while(!robotAparu);
 
-
-
         Robot robot(i, pos);
 
         listeRobot.push_back(robot);
@@ -80,10 +78,8 @@ int main() {
 
     //Boucle principale du programme
     while(listeRobot.size() > 1){
-
         ordreIteration = randomListInt((int)listeRobot.size());
         DIRECTIONS dir;
-
 
         for(size_t i = 0; i < listeRobot.size(); ++i){
             Robot robotActuel = listeRobot.at((size_t)ordreIteration[i]);
@@ -102,14 +98,23 @@ int main() {
                 if(robotActuel.getIndex() == robot.getIndex())
                     continue;
                 if(robotActuel == robot){
+                    /*  FONCTIONNE PAS
+                    // Ajouter le message de mort
+                    string mort = "Robot " + robotActuel.getIndex(); // Utiler streamoperator
+                    mort +=  ": est mort... \n";
+
+                    historiqueMorts += mort;
+                    */
+
                     //Tuer robot actuel
-                    //auto it = find(listeRobot.begin(), listeRobot.end(), robot);
-                    // listeRobot.erase(it);
-                    try{
-                        listeRobot.erase(listeRobot.begin() + ordreIteration[i]);
-                    }catch (const std::exception &e){
-                        cout << "Cant erase" << endl;
-                    };
+                    listeRobot.erase(listeRobot.begin() + ordreIteration[i]);
+
+                    //Mettre a jour les index de la liste d'itération
+                    for(size_t y = 0; y < ordreIteration.size(); ++y){
+                        if(ordreIteration[y] > ordreIteration[i]){
+                            --ordreIteration[y];
+                        }
+                    }
 
 
                     break;
