@@ -38,18 +38,13 @@ Matrice Terrain::getTerrain() const{
     return this->terrain;
 }
 
-bool Terrain::positionDisponible(int posX, int posY) const {
-    if(posX == 0 || posX == hauteur-1 || posY == 0 || posY == largeur -1)
+bool Terrain::positionDisponible(position pos) const {
+    if(pos.front() <= 0 || pos.front() >= largeur-1 || pos.back() <= 0 || pos.back() >= hauteur -1)
         return false;
 
     return true;
 }
 
-void Terrain::ajouterRobot(const Robot& robot) {
-    terrain.at((size_t)robot.getPosY()).at((size_t)robot.getPosX()) = char(robot.getIndex() + '0');
-}
-
-// A revoir
 ostream& operator<<(ostream &os, const Terrain &terrain){
     for(const Ligne & i : terrain.terrain){
         for(char y : i){
@@ -58,4 +53,24 @@ ostream& operator<<(ostream &os, const Terrain &terrain){
         cout << endl;
     }
     return os;
+}
+
+void affichage(const Terrain& terrain, const std::vector<Robot>& listeRobot){
+    for(size_t i = 0; i < terrain.getTerrain().size(); ++i){
+        for(size_t y = 0; y < terrain.getTerrain()[i].size(); ++y){
+            bool robotAfficher = false;
+            for(const Robot& robot : listeRobot){
+                if(robot.getPosition().front() == (int)y && robot.getPosition().back() == (int)i){
+                    robotAfficher = true;
+                    cout << setw(2) << robot;
+                    break;
+                }
+            }
+            if(!robotAfficher){
+                cout << setw(2) << terrain.getTerrain()[i][y];
+            }
+        }
+        cout << endl;
+    }
+    cout << endl;
 }

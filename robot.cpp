@@ -12,58 +12,40 @@
 
 #include "robot.h"
 #include "annexe.h"
-
+#include <iostream>
+using namespace std;
 
 Robot::Robot(){
     this->index = 0;
-    this->posX  = 0;
-    this->posY  = 0;
+    this->positionR = {0, 0};
 }
 
-Robot::Robot(int index, int posX, int posY){
+Robot::Robot(int index, position pos){
     this->index = index;
-    this->posX  = posX;
-    this->posY  = posY;
+    this->positionR = pos;
 }
 
 int Robot::getIndex() const{
     return this->index;
 }
 
-int Robot::getPosX()  const{
-    return this->posX;
-}
-int Robot::getPosY()  const{
-    return this->posY;
-}
-
-void Robot::setPosX(int newX){
-    this->posX = newX;
-}
-
-void Robot::setPosY(int newY){
-    this->posY = newY;
+position Robot::getPosition()  const{
+    return positionR;
 }
 
 bool Robot::operator==(const Robot& robot) const{
-    if(this->posX == robot.posX && this->posY == robot.posY)
+    if(this->positionR.front() == robot.positionR.front() && this->positionR.back() == robot.positionR.back())
         return true;
     else
         return false;
 }
 
-Robot::~Robot(){
-
+ostream& operator<<(ostream &os, const Robot &robot){
+    cout << robot.getIndex();
+    return os;
 }
 
-bool Robot::deplacement(DIRECTIONS dir, int nbPas) {
-    //if()
+void Robot::deplacement(DIRECTIONS dir, int nbPas) {
+    this->positionR = positionRelative(this->positionR, dir, nbPas);
 
-    return false;
 }
-
-
-DIRECTIONS directionAleatoire(int posX, int posY){
-    return (DIRECTIONS) randomInt(0, 3); // Auto pour warning
-}
-

@@ -13,36 +13,27 @@
 #ifndef LABO_07_ROBOTS_ROBOT_H
 #define LABO_07_ROBOTS_ROBOT_H
 
-enum class DIRECTIONS{
-    HAUT,
-    BAS,
-    GAUCHE,
-    DROITE
-};
+#include "position.h"
 
 class Robot {
 private:
     int index;
-    int posX;
-    int posY;
+    position positionR;
 
 public:
     Robot();
-    Robot(int index, int posX, int posY);
+    Robot(int index, position pos);
 
     int getIndex() const;
-    int getPosX()  const;
-    int getPosY()  const;
+    position getPosition()  const;
 
-    void setPosX(int newX);
-    void setPosY(int newY);
-
-    bool deplacement(DIRECTIONS dir, int nbPas);
+    void deplacement(DIRECTIONS dir, int nbPas);
 
     bool operator==(const Robot& robot) const;
 
-    ~Robot();
+    friend std::ostream& operator<< (std::ostream& os, const Robot& robot);
 };
 
-DIRECTIONS directionAleatoire(int posX, int posY);
+DIRECTIONS directionAleatoire();
+
 #endif //LABO_07_ROBOTS_ROBOT_H

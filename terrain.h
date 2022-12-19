@@ -38,11 +38,13 @@ public:
 
     Matrice getTerrain() const;
 
-    bool positionDisponible(int posX, int posY) const;
-    void ajouterRobot(const Robot& robot);
+    bool positionDisponible(position pos) const;
 
     friend std::ostream& operator<< (std::ostream& os, const Terrain& terrain);
+
 };
+
+void affichage(const Terrain& terrain, const std::vector<Robot>& listeRobot);
 
 
 
