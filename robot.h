@@ -14,6 +14,7 @@
 #define LABO_07_ROBOTS_ROBOT_H
 
 #include "position.h"
+#include <iostream>
 
 class Robot {
 private:
@@ -33,7 +34,5 @@ public:
 
     friend std::ostream& operator<< (std::ostream& os, const Robot& robot);
 };
-
-DIRECTIONS directionAleatoire();
 
 #endif //LABO_07_ROBOTS_ROBOT_H

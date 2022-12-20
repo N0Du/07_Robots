@@ -13,7 +13,6 @@
 #include <random>
 #include <iostream>
 #include <iomanip>
-#include <algorithm>
 using namespace std;
 
 // Macro pour vider le buffer

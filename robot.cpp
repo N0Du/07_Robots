@@ -41,7 +41,7 @@ bool Robot::operator==(const Robot& robot) const{
 }
 
 ostream& operator<<(ostream &os, const Robot &robot){
-    cout << robot.getIndex();
+    os << robot.getIndex();
     return os;
 }
 
