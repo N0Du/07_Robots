@@ -38,12 +38,14 @@ int main() {
     //========================
     // Préparation du jeu
     //========================
-    const int LARGEUR_MUR = 1;
+    const int LARGEUR_MUR = 1; // Deplacer dans Terrain
     string historiqueMorts;
 
     vector<Robot> listeRobot;
 
     Terrain terrain(largeur, hauteur);
+
+    // Création des robots
     for(int i = 0; i < nbRobots; ++i){
         bool robotAparu;
         position pos;
@@ -82,14 +84,14 @@ int main() {
         DIRECTIONS dir;
 
         for(size_t i = 0; i < listeRobot.size(); ++i){
-            Robot robotActuel = listeRobot.at((size_t)ordreIteration[i]);
+            Robot& robotActuel = listeRobot.at((size_t)ordreIteration[i]);
             bool peuxBouger = false;
 
             do {
                 dir = directionAleatoire();
                 if(terrain.positionDisponible(positionRelative(robotActuel.getPosition(), dir, 1))){
                     peuxBouger = true;
-                    listeRobot.at((size_t)ordreIteration[i]).deplacement(dir, 1);
+                    robotActuel.deplacement(dir, 1);
                 }
 
             } while(!peuxBouger);
@@ -123,10 +125,9 @@ int main() {
         }
 
         system("clear");
-        affichage(terrain, listeRobot);
-        cout << historiqueMorts;
+        affichage(terrain, listeRobot); // Affiche le terrain ainsi que les robots
+        cout << "Ceci est un message de test" << endl;
 
-        /* Afficher le terrain et les robots */
         this_thread::sleep_for(chrono::milliseconds(200)); // Pause le programme temporairement
     }
 
