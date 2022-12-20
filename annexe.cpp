@@ -2,7 +2,9 @@
 // Auteur      Noam Dugerdil & Sebastian Diaz
 // Date        12.12.2022
 //
-// But         description détaillée du projet
+// But         permet de prendre des valeurs saisis par l'utilisateur afin de créer
+//             un terrain de jeu pour les robots.
+//             contient aussi la fonction pour générer des entier aléatoire.
 //
 // Remarque
 //
@@ -63,6 +65,7 @@ vector<int> randomListInt(int nbElem){
     vector<int> retour;
 
     while(!temp.empty()){
+        // Récupere un nombre aléatoirement dans le vecteur temp et le stock dans le vecteur retour
         int randomIndex = randomInt(0, (int)temp.size()-1);
         retour.push_back(temp.at((size_t)randomIndex));
         temp.erase(temp.begin()+randomIndex);

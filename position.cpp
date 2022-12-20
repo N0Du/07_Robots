@@ -2,7 +2,7 @@
 // Auteur      Noam Dugerdil & Sebastian Diaz
 // Date        19.12.2022
 //
-// But         description détaillée du projet
+// But         Met a disposition des type et des fonction permettant de traiter des positions sur un plan en 2D
 //
 // Remarque
 //

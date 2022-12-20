@@ -2,7 +2,7 @@
 // Auteur      Noam Dugerdil & Sebastian Diaz
 // Date        12.12.2022
 //
-// But         description détaillée du projet
+// But         Permet de créer et déplacer des robots relativement a leur position
 //
 // Remarque
 //
@@ -18,8 +18,8 @@
 
 class Robot {
 private:
-    int index;
-    position positionR;
+    int index;              // Numéro du robot
+    position positionR;     // Position du Robot
 
 public:
     Robot();
@@ -33,6 +33,16 @@ public:
     bool operator==(const Robot& robot) const;
 
     friend std::ostream& operator<< (std::ostream& os, const Robot& robot);
+};
+
+// nom         EstAuMemeEndroit
+// but         foncteur
+class EstAuMemeEndroit{
+private:
+    Robot    robot;
+public:
+    explicit EstAuMemeEndroit(Robot robot)   : robot(robot){};
+    bool operator() (Robot r);
 };
 
 #endif //LABO_07_ROBOTS_ROBOT_H

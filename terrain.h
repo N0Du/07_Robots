@@ -2,7 +2,7 @@
 // Auteur      Noam Dugerdil & Sebastian Diaz
 // Date        12.12.2022
 //
-// But         description détaillée du projet
+// But         header pour la création d'un terrain
 //
 // Remarque
 //
@@ -44,8 +44,13 @@ public:
 
 };
 
+// nom         affichage
+// but         fonction affichage du terrain et des robots
+//
+// param       terrain     Terrain
+// param       listeRobot  liste contenant les robots devant etre afficher terrain
+// return      entier
+// exception   n/a
 void affichage(const Terrain& terrain, const std::vector<Robot>& listeRobot);
-
-
 
 #endif //LABO_07_ROBOTS_TERRAIN_H

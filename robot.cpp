@@ -2,7 +2,7 @@
 // Auteur      Noam Dugerdil & Sebastian Diaz
 // Date        12.12.2022
 //
-// But         description détaillée du projet
+// But         Permet de créer et déplacer des robots relativement a leur position
 //
 // Remarque
 //
@@ -12,7 +12,7 @@
 
 #include "robot.h"
 #include "annexe.h"
-#include <iostream>
+
 using namespace std;
 
 Robot::Robot(){
@@ -48,4 +48,10 @@ ostream& operator<<(ostream &os, const Robot &robot){
 void Robot::deplacement(DIRECTIONS dir, int nbPas) {
     this->positionR = positionRelative(this->positionR, dir, nbPas);
 
+}
+
+bool EstAuMemeEndroit::operator()(Robot r) {
+    if(r.getIndex() == robot.getIndex())
+        return false;
+    return (robot == r);
 }
